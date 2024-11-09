@@ -1,0 +1,15 @@
+name: Access Challenge
+
+on:
+  push:
+    branches:
+      - main  # Ejecutará el workflow al hacer push a la rama 'main'
+  workflow_dispatch:  # Permite ejecutar manualmente el workflow
+
+jobs:
+  access_challenge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make request to CTF URL
+        run: |
+          curl -v "https://actions.ctf.cert.unlp.edu.ar/"
