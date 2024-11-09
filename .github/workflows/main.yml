@@ -3,13 +3,13 @@ name: Access Challenge
 on:
   push:
     branches:
-      - main  # Ejecutará el workflow al hacer push a la rama 'main'
-  workflow_dispatch:  # Permite ejecutar manualmente el workflow
+      - main
+  workflow_dispatch:
 
 jobs:
   access_challenge:
     runs-on: ubuntu-latest
     steps:
-      - name: Make request to CTF URL
+      - name: Make request with custom headers
         run: |
-          curl -v "https://actions.ctf.cert.unlp.edu.ar/"
+          curl -v -H "User-Agent: GitHubActions" -H "Accept: application/json" "https://actions.ctf.cert.unlp.edu.ar/"
